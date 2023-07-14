@@ -218,6 +218,12 @@ module oracle::weather {
     /// Accessor for the `dt` field of the `CityWeatherOracle`.
     public fun dt(city_weather_oracle: &CityWeatherOracle): u32 { city_weather_oracle.dt }
 
+    public fun city_weather_oracle(
+        oracle: &WeatherOracle, 
+        geoname_id: u32, 
+    ): &CityWeatherOracle {
+        dof::borrow<u32, CityWeatherOracle>(&oracle.id, geoname_id)
+    }
 
     // === Updated ===
     public fun update_name(_: &AdminCap, weather_oracle: &mut WeatherOracle, name: String) {
