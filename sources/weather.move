@@ -225,6 +225,14 @@ module oracle::weather {
         dof::borrow<u32, CityWeatherOracle>(&oracle.id, geoname_id)
     }
 
+    public fun city_weather_oracle_temp(
+        oracle: &WeatherOracle, 
+        geoname_id: u32, 
+    ): u32 {
+        let city_weather_oracle = dof::borrow<u32, CityWeatherOracle>(&oracle.id, geoname_id);
+        temp(city_weather_oracle)
+    }
+
     // === Updated ===
     public fun update_name(_: &AdminCap, weather_oracle: &mut WeatherOracle, name: String) {
         weather_oracle.name = name;
