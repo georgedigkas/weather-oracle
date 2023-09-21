@@ -218,99 +218,42 @@ module oracle::weather {
     /// Accessor for the `dt` field of the `CityWeatherOracle`.
     public fun dt(city_weather_oracle: &CityWeatherOracle): u32 { city_weather_oracle.dt }
 
-    public fun city_weather_oracle(
-        oracle: &WeatherOracle, 
-        geoname_id: u32, 
-    ): &CityWeatherOracle {
-        dof::borrow<u32, CityWeatherOracle>(&oracle.id, geoname_id)
-    }
+    /// Accessor for the `geoname_id` field of the `CityWeatherOracle`.
+    public fun city_weather_oracle_geoname_id(weather_oracle: &WeatherOracle, geoname_id: u32): u32 { let city_weather_oracle = dof::borrow<u32, CityWeatherOracle>(&weather_oracle.id, geoname_id); city_weather_oracle.geoname_id }
+    /// Accessor for the `name` field of the `CityWeatherOracle`.
+    public fun city_weather_oracle_name(weather_oracle: &WeatherOracle, geoname_id: u32): String { let city_weather_oracle = dof::borrow<u32, CityWeatherOracle>(&weather_oracle.id, geoname_id); city_weather_oracle.name }
+    /// Accessor for the `country` field of the `CityWeatherOracle`.
+    public fun city_weather_oracle_country(weather_oracle: &WeatherOracle, geoname_id: u32): String { let city_weather_oracle = dof::borrow<u32, CityWeatherOracle>(&weather_oracle.id, geoname_id); city_weather_oracle.country }
+    /// Accessor for the `latitude` field of the `CityWeatherOracle`.
+    public fun city_weather_oracle_latitude(weather_oracle: &WeatherOracle, geoname_id: u32): u32 { let city_weather_oracle = dof::borrow<u32, CityWeatherOracle>(&weather_oracle.id, geoname_id); city_weather_oracle.latitude }
+    /// Accessor for the `positive_latitude` field of the `CityWeatherOracle`.
+    public fun city_weather_oracle_positive_latitude(weather_oracle: &WeatherOracle, geoname_id: u32): bool { let city_weather_oracle = dof::borrow<u32, CityWeatherOracle>(&weather_oracle.id, geoname_id); city_weather_oracle.positive_latitude }
+    /// Accessor for the `longitude` field of the `CityWeatherOracle`.
+    public fun city_weather_oracle_longitude(weather_oracle: &WeatherOracle, geoname_id: u32): u32 { let city_weather_oracle = dof::borrow<u32, CityWeatherOracle>(&weather_oracle.id, geoname_id); city_weather_oracle.longitude }
+    /// Accessor for the `positive_longitude` field of the `CityWeatherOracle`.
+    public fun city_weather_oracle_positive_longitude(weather_oracle: &WeatherOracle, geoname_id: u32): bool { let city_weather_oracle = dof::borrow<u32, CityWeatherOracle>(&weather_oracle.id, geoname_id); city_weather_oracle.positive_longitude }
+    /// Accessor for the `weather_id` field of the `CityWeatherOracle`.
+    public fun city_weather_oracle_weather_id(weather_oracle: &WeatherOracle, geoname_id: u32): u16 { let city_weather_oracle = dof::borrow<u32, CityWeatherOracle>(&weather_oracle.id, geoname_id); city_weather_oracle.weather_id }
+    /// Accessor for the `temp` field of the `CityWeatherOracle`.
+    public fun city_weather_oracle_temp(weather_oracle: &WeatherOracle, geoname_id: u32): u32 { let city_weather_oracle = dof::borrow<u32, CityWeatherOracle>(&weather_oracle.id, geoname_id); city_weather_oracle.temp }
+    /// Accessor for the `pressure` field of the `CityWeatherOracle`.
+    public fun city_weather_oracle_pressure(weather_oracle: &WeatherOracle, geoname_id: u32): u32 { let city_weather_oracle = dof::borrow<u32, CityWeatherOracle>(&weather_oracle.id, geoname_id); city_weather_oracle.pressure }
+    /// Accessor for the `humidity` field of the `CityWeatherOracle`.
+    public fun city_weather_oracle_humidity(weather_oracle: &WeatherOracle, geoname_id: u32): u8 { let city_weather_oracle = dof::borrow<u32, CityWeatherOracle>(&weather_oracle.id, geoname_id); city_weather_oracle.humidity }
+    /// Accessor for the `visibility` field of the `CityWeatherOracle`.
+    public fun city_weather_oracle_visibility(weather_oracle: &WeatherOracle, geoname_id: u32): u16 { let city_weather_oracle = dof::borrow<u32, CityWeatherOracle>(&weather_oracle.id, geoname_id); city_weather_oracle.visibility }
+    /// Accessor for the `wind_speed` field of the `CityWeatherOracle`.
+    public fun city_weather_oracle_wind_speed(weather_oracle: &WeatherOracle, geoname_id: u32): u16 { let city_weather_oracle = dof::borrow<u32, CityWeatherOracle>(&weather_oracle.id, geoname_id); city_weather_oracle.wind_speed }
+    /// Accessor for the `wind_deg` field of the `CityWeatherOracle`.
+    public fun city_weather_oracle_wind_deg(weather_oracle: &WeatherOracle, geoname_id: u32): u16 { let city_weather_oracle = dof::borrow<u32, CityWeatherOracle>(&weather_oracle.id, geoname_id); city_weather_oracle.wind_deg }
+    /// Accessor for the `wind_gust` field of the `CityWeatherOracle`.
+    public fun city_weather_oracle_wind_gust(weather_oracle: &WeatherOracle, geoname_id: u32): Option<u16> { let city_weather_oracle = dof::borrow<u32, CityWeatherOracle>(&weather_oracle.id, geoname_id); city_weather_oracle.wind_gust }
+    /// Accessor for the `clouds` field of the `CityWeatherOracle`.
+    public fun city_weather_oracle_clouds(weather_oracle: &WeatherOracle, geoname_id: u32): u8 { let city_weather_oracle = dof::borrow<u32, CityWeatherOracle>(&weather_oracle.id, geoname_id); city_weather_oracle.clouds }
+    /// Accessor for the `dt` field of the `CityWeatherOracle`.
+    public fun city_weather_oracle_dt(weather_oracle: &WeatherOracle, geoname_id: u32): u32 { let city_weather_oracle = dof::borrow<u32, CityWeatherOracle>(&weather_oracle.id, geoname_id); city_weather_oracle.dt }
 
-    public fun city_weather_oracle_geoname_id(oracle: &WeatherOracle, geoname_id: u32): u32 {
-        let city_weather_oracle = dof::borrow<u32, CityWeatherOracle>(&oracle.id, geoname_id);
-        geoname_id(city_weather_oracle)
-    }
-    
-    public fun city_weather_oracle_name(oracle: &WeatherOracle, geoname_id: u32): String {
-        let city_weather_oracle = dof::borrow<u32, CityWeatherOracle>(&oracle.id, geoname_id);
-        name(city_weather_oracle)
-    }
-    
-    public fun city_weather_oracle_country(oracle: &WeatherOracle, geoname_id: u32): String {
-        let city_weather_oracle = dof::borrow<u32, CityWeatherOracle>(&oracle.id, geoname_id);
-        country(city_weather_oracle)
-    }
-    
-    public fun city_weather_oracle_latitude(oracle: &WeatherOracle, geoname_id: u32): u32 {
-        let city_weather_oracle = dof::borrow<u32, CityWeatherOracle>(&oracle.id, geoname_id);
-        latitude(city_weather_oracle)
-    }
-    
-    public fun city_weather_oracle_positive_latitude(oracle: &WeatherOracle, geoname_id: u32): bool {
-        let city_weather_oracle = dof::borrow<u32, CityWeatherOracle>(&oracle.id, geoname_id);
-        positive_latitude(city_weather_oracle)
-    }
-    
-    public fun city_weather_oracle_longitude(oracle: &WeatherOracle, geoname_id: u32): u32 {
-        let city_weather_oracle = dof::borrow<u32, CityWeatherOracle>(&oracle.id, geoname_id);
-        longitude(city_weather_oracle)
-    }
-    
-    public fun city_weather_oracle_positive_longitude(oracle: &WeatherOracle, geoname_id: u32): bool {
-        let city_weather_oracle = dof::borrow<u32, CityWeatherOracle>(&oracle.id, geoname_id);
-        positive_longitude(city_weather_oracle)
-    }
-    
-    public fun city_weather_oracle_weather_id(oracle: &WeatherOracle, geoname_id: u32): u16 {
-        let city_weather_oracle = dof::borrow<u32, CityWeatherOracle>(&oracle.id, geoname_id);
-        weather_id(city_weather_oracle)
-    }
-    
-    public fun city_weather_oracle_temp(oracle: &WeatherOracle, geoname_id: u32): u32 {
-        let city_weather_oracle = dof::borrow<u32, CityWeatherOracle>(&oracle.id, geoname_id);
-        temp(city_weather_oracle)
-    }
-    
-    public fun city_weather_oracle_pressure(oracle: &WeatherOracle, geoname_id: u32): u32 {
-        let city_weather_oracle = dof::borrow<u32, CityWeatherOracle>(&oracle.id, geoname_id);
-        pressure(city_weather_oracle)
-    }
-    
-    public fun city_weather_oracle_humidity(oracle: &WeatherOracle, geoname_id: u32): u8 {
-        let city_weather_oracle = dof::borrow<u32, CityWeatherOracle>(&oracle.id, geoname_id);
-        humidity(city_weather_oracle)
-    }
-    
-    public fun city_weather_oracle_visibility(oracle: &WeatherOracle, geoname_id: u32): u16 {
-        let city_weather_oracle = dof::borrow<u32, CityWeatherOracle>(&oracle.id, geoname_id);
-        visibility(city_weather_oracle)
-    }
-    
-    public fun city_weather_oracle_wind_speed(oracle: &WeatherOracle, geoname_id: u32): u16 {
-        let city_weather_oracle = dof::borrow<u32, CityWeatherOracle>(&oracle.id, geoname_id);
-        wind_speed(city_weather_oracle)
-    }
-    
-    public fun city_weather_oracle_wind_deg(oracle: &WeatherOracle, geoname_id: u32): u16 {
-        let city_weather_oracle = dof::borrow<u32, CityWeatherOracle>(&oracle.id, geoname_id);
-        wind_deg(city_weather_oracle)
-    }
-    
-    public fun city_weather_oracle_wind_gust(oracle: &WeatherOracle, geoname_id: u32): Option<u16> {
-        let city_weather_oracle = dof::borrow<u32, CityWeatherOracle>(&oracle.id, geoname_id);
-        wind_gust(city_weather_oracle)
-    }
-    
-    public fun city_weather_oracle_clouds(oracle: &WeatherOracle, geoname_id: u32): u8 {
-        let city_weather_oracle = dof::borrow<u32, CityWeatherOracle>(&oracle.id, geoname_id);
-        clouds(city_weather_oracle)
-    }
-    
-    public fun city_weather_oracle_dt(oracle: &WeatherOracle, geoname_id: u32): u32 {
-        let city_weather_oracle = dof::borrow<u32, CityWeatherOracle>(&oracle.id, geoname_id);
-        dt(city_weather_oracle)
-    }
-
-    // === Updated ===
+    // === Updates ===
     public fun update_name(_: &AdminCap, weather_oracle: &mut WeatherOracle, name: String) {
         weather_oracle.name = name;
     }
